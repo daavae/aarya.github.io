@@ -1,5 +1,8 @@
 import { useState } from "react";
-import { Routes, Route } from "react-router-dom";
+import { BrowserRouter, useNavigate } from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
+import reactLogo from "./assets/react.svg";
+import viteLogo from "/vite.svg";
 import "./App.css";
 import NavBar from "./components/NavBar.jsx";
 import HomePage from "./components/HomePage.jsx";
@@ -12,21 +15,15 @@ function Contact() {
   return <h2>Contact Page</h2>;
 }
 
-function App() {
-  const [count, setCount] = useState(0);
-
+export default function Pages() {
   return (
-    <>
-      <div style={{ marginBottom: "70px" }}>
-        <NavBar />
-      </div>
+    <BrowserRouter>
+      <NavBar />
       <Routes>
-        <Route path="/home" element={<HomePage />} />
+        <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
-    </>
+    </BrowserRouter>
   );
 }
-
-export default App;
